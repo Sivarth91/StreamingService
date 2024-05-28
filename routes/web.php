@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,4 +16,11 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+Route::get('/movie', function (Request $request) {
+    return [
+        "title" => $request->input("title", "Inconnu"),
+        "desc" => "this is a movie"
+    ];
 });
